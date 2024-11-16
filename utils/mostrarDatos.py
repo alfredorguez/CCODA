@@ -23,14 +23,15 @@ def visualizarPerfiles(matriz, title : str = "", colormap : str = "viridis", tm 
     if not isinstance(matriz, np.ndarray):
         raise ValueError("La matriz debe ser un numpy.ndarray")
 
-    tiempo = np.arange(0, matriz.shape[1] * tm, 10)
+    #tiempo = np.arange(0, matriz.shape[0] * tm, 10*tm)
+    tiempo = np.linspace(0,matriz.shape[1]*tm,10)*1e3
 
     plt.figure(figsize=(10, 6))
     plt.imshow(matriz, aspect='auto', cmap=colormap, origin='lower')
     plt.colorbar(label="Produndidad [mm]")
     plt.title(title)
-    plt.xlabel("Tiempo [s]")
+    plt.xlabel("Tiempo [ms]")
     plt.ylabel("Ancho [mm]")
-    plt.xticks(tiempo, np.round(tiempo, 3))
+    plt.xticks(np.linspace(0,matriz.shape[1],len(tiempo)),[f"{t:.0f}" for t in tiempo])
     plt.tight_layout()
     plt.show()
