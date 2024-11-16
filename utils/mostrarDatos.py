@@ -19,11 +19,11 @@ def visualizarPerfiles(matriz, title : str = "", colormap : str = "viridis", tm 
 
     :return: None
     """
-    
+
     if not isinstance(matriz, np.ndarray):
         raise ValueError("La matriz debe ser un numpy.ndarray")
 
-    tiempo = np.arange(0, matriz.shape[1] * tm, tm)
+    tiempo = np.arange(0, matriz.shape[1] * tm, 10)
 
     plt.figure(figsize=(10, 6))
     plt.imshow(matriz, aspect='auto', cmap=colormap, origin='lower')
@@ -31,6 +31,6 @@ def visualizarPerfiles(matriz, title : str = "", colormap : str = "viridis", tm 
     plt.title(title)
     plt.xlabel("Tiempo [s]")
     plt.ylabel("Ancho [mm]")
-    plt.xticks(np.arange(0, matriz.shape[1], 10), tiempo[np.arange(0, matriz.shape[1], 10)])
+    plt.xticks(tiempo, np.round(tiempo, 3))
     plt.tight_layout()
     plt.show()
