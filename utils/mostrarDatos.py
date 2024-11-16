@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def visualizarPerfiles(matriz, title : str = "", colormap : str = "viridis", tm : float = 5e-3):
+def visualizarPerfiles(matriz, title : str = "", colormap : str = "jet", tm : float = 5e-3):
     """
     Visualiza una matriz de datos como si fuera una imagen.
 
@@ -24,7 +24,7 @@ def visualizarPerfiles(matriz, title : str = "", colormap : str = "viridis", tm 
         raise ValueError("La matriz debe ser un numpy.ndarray")
 
     #tiempo = np.arange(0, matriz.shape[0] * tm, 10*tm)
-    tiempo = np.linspace(0,matriz.shape[1]*tm,10)*1e3
+    tiempo = np.linspace(0,matriz.shape[1],10)
 
     plt.figure(figsize=(10, 6))
     plt.imshow(matriz, aspect='auto', cmap=colormap, origin='lower')
