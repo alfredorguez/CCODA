@@ -11,7 +11,7 @@ def visualizarPerfiles(matriz, title : str = "", colormap : str = "jet", tm : fl
     :param title: Título de la gráfica (por defecto "Matriz de datos")
     :type title: str
     
-    :param colormap: Mapa de colores a utilizar (por defecto "viridis")
+    :param colormap: Mapa de colores a utilizar (por defecto "jet")
     :type colormap: str
     
     :param tm: Tiempo de muestreo en segundos (por defecto 5e-3 segundos)
@@ -23,15 +23,14 @@ def visualizarPerfiles(matriz, title : str = "", colormap : str = "jet", tm : fl
     if not isinstance(matriz, np.ndarray):
         raise ValueError("La matriz debe ser un numpy.ndarray")
 
-    #tiempo = np.arange(0, matriz.shape[0] * tm, 10*tm)
-    tiempo = np.linspace(0,matriz.shape[1],10)
+    tiempo = np.linspace(0,matriz.shape[1]*tm,10)
 
     plt.figure(figsize=(10, 6))
     plt.imshow(matriz, aspect='auto', cmap=colormap, origin='lower')
     plt.colorbar(label="Produndidad [mm]")
     plt.title(title)
-    plt.xlabel("Tiempo [ms]")
+    plt.xlabel("Tiempo [s]")
     plt.ylabel("Ancho [mm]")
-    plt.xticks(np.linspace(0,matriz.shape[1],len(tiempo)),[f"{t:.0f}" for t in tiempo])
+    plt.xticks(np.linspace(0,matriz.shape[1],len(tiempo)),[f"{t:.3f}" for t in tiempo])
     plt.tight_layout()
     plt.show()
