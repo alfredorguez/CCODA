@@ -4,6 +4,12 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
+- file: etiquetadoDatos
+- file: introCaracteristicas
+- file: extraccionCaracteristicasI
+- file: extraccionCaracteristicasII
+- file: reduccionDimension
+- file: algoritmosML
+- file: redesNeuronales
+- file: conclusiones
 - file: markdown-notebooks
