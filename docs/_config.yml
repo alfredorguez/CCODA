@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Sistema Robotizado de Montaje de Luminarias con Control de Calidad On-line para la Deposición de Adhesivo en Circuitos LED
+title: Sistema Robotizado de Control de Calidad On-line de Dispensación de Adhesivos Dirigido por Datos
 author: Alfredo Rodríguez Magdalena
 logo: logo.png
 
@@ -28,5 +28,5 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
+  use_issues_button: false
   use_repository_button: true
