@@ -42,7 +42,9 @@ public:
      */
     int predict(const float* features);
 
-private:
+    friend class DecisionTree;
+
+protected:
     int feature_index;           // Índice de la característica a comparar
     float threshold;             // Umbral de comparación
     vector<int> values;          // Lista de valores de muestras por clase

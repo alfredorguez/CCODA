@@ -1,13 +1,13 @@
 #include "BinaryNode.h"
 #include <iostream>
 
-int main() {
+int main_() {
     // Crear nodos hoja
     BinaryNode* leaf1 = new BinaryNode(-1, 0.0, {3, 0, 0});  // Clase 0
-    BinaryNode* leaf2 = new BinaryNode(-1, 0.0, {0, 5, 0});  // Clase 1
+    BinaryNode* leaf2 = new BinaryNode(-1, 0.0, {0, 1, 0});  // Clase 1
 
     // Nodo intermedio
-    BinaryNode* root = new BinaryNode(0, 1.5, {8, 5, 0}, leaf1, leaf2);
+    BinaryNode* root = new BinaryNode(0, 1, {8, 5, 0}, leaf1, leaf2);
 
     // Características de entrada
     float features[] = {2.0};
