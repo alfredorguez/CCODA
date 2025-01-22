@@ -20,21 +20,22 @@ BinaryNode* DecisionTree::buildTree(const json& tree_json, int node_index) {
         return nullptr;  // Nodo inexistente
     }
 
+    // Extraer la información del nodo actual desde la lista de nodos
+    const auto& node_data = tree_json["nodes"][node_index];
+    int left_index = node_data[0];  // Índice del hijo izquierdo
+    int right_index = node_data[1]; // Índice del hijo derecho
+    int feature = node_data[2];     // Característica usada para el umbral
+    float threshold = node_data[3]; // Umbral de división
+    vector<int> values(tree_json["values"][node_index][0].begin(),
+                       tree_json["values"][node_index][0].end()); // Valores de las clases
+
     // Crear el nodo actual
-    int feature = tree_json["feature"][node_index];
-    float threshold = tree_json["threshold"][node_index];
-    vector<int> values(tree_json["value"][node_index][0].begin(),
-                       tree_json["value"][node_index][0].end());
+    nodes.push_back(std::make_unique<BinaryNode>(feature, threshold, values));
+    BinaryNode* current_node = nodes.back().get();  // Obtener puntero al nodo actual
 
-    // Crear nodo y agregarlo al vector
-    nodes.push_back(make_unique<BinaryNode>(feature, threshold, values));
-
-    // Obtener puntero al nodo recién creado
-    BinaryNode* current_node = nodes.back().get();
-
-    // Construir los nodos hijos recursivamente
-    current_node->left = buildTree(tree_json, tree_json["children_left"][node_index]);
-    current_node->right = buildTree(tree_json, tree_json["children_right"][node_index]);
+    // Construir recursivamente los hijos izquierdo y derecho
+    current_node->left = buildTree(tree_json, left_index);
+    current_node->right = buildTree(tree_json, right_index);
 
     return current_node;
 }

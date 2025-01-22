@@ -6,7 +6,7 @@ CONFIG += console c++17
 CONFIG -= app_bundle
 CONFIG -= qt
 
-#INCLUDEPATH += $$PWD/third_party/json
+INCLUDEPATH += $$PWD/third_party/rapidcsv
 
 SOURCES += \
         BinaryNode.cpp \
