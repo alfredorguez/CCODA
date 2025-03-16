@@ -23,7 +23,7 @@ def visualizarPerfiles(matriz, title : str = "", colormap : str = "jet", tm : fl
     if not isinstance(matriz, np.ndarray):
         raise ValueError("La matriz debe ser un numpy.ndarray")
 
-    tiempo = np.linspace(0,matriz.shape[1]*tm,10)
+    tiempo = np.linspace(0,matriz.shape[1]*tm,10).astype(int)
 
     plt.figure(figsize=(10, 6))
     plt.imshow(matriz, aspect='auto', cmap=colormap, origin='lower')
