@@ -1,6 +1,6 @@
 clear; close all;
 
-data = readtable('../stepsModeloDinamico/v2/perfiles_v2_500_1000_P6_3.csv',...
+data = readtable('../datos/muestrasExp/perfiles_v2_500_1000_P6_3.csv',...
     'VariableNamingRule','preserve');
 
 data = table2array(data);
@@ -56,8 +56,9 @@ c = colorbar(ax1, 'Position', [pos1(1) + pos1(3) + 0.02, pos1(2), 0.03, pos1(4)]
 xlabel(ax2, 'Tiempo [s]');
 ylabel(ax2, 'Velocidad [mm/s]');
 c.Label.String = 'Altura [mm]';
-c.Label.FontSize = 12;
+c.Label.FontSize = 16;
+c.FontSize = 14;
 
-set(gca,"FontSize",12);
+set(gca,"FontSize",14);
 
-saveas(gcf, 'stepHilo3D.eps', 'epsc');
+%saveas(gcf, 'stepHilo3D.eps', 'epsc');
