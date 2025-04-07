@@ -48,20 +48,20 @@ end
 data3 = table2array(data3);
 data3 = data3(2:end,:);
 
-i = 0; % Perfiles efectivos
-perfiles3 = [];
+%i = 0; % Perfiles efectivos
+%perfiles3 = [];
 
-for kk = 0:max(data3(:,end))
-    idx = find(data3(:,end)==kk);
+%for kk = 0:max(data3(:,end))
+%    idx = find(data3(:,end)==kk);
 
-    if length(idx) < 500
-        continue
-    end
+%    if length(idx) < 500
+%        continue
+%    end
 
-    perfil = [data3(idx,2), i.*ones(length(idx),1),data3(idx,3)];
-    perfiles3 = [perfiles3 ; perfil];
-    i = i + 1;
-end
+%    perfil = [data3(idx,2), i.*ones(length(idx),1),data3(idx,3)];
+%    perfiles3 = [perfiles3 ; perfil];
+%    i = i + 1;
+%end
 
 figure(1); clf; 
 
@@ -83,22 +83,22 @@ colormap jet;
 axis([0,1000,0,1000,0,10]);
 set(gca,'xtick',[],'ytick',[]);
 
-ax3 = subplot(313);
-[xx,yy] = meshgrid(linspace(-12,4,1000),...
-        linspace(20,max(perfiles3(:,2)),1000)); 
-vq = griddata(perfiles3(:,1)',perfiles3(:,2)',perfiles3(:,3)',xx,yy);
-imagesc(vq'); 
-colormap jet;
-axis([0,1000,0,1000,0,10]);
-set(gca,'xtick',[],'ytick',[]);
+%ax3 = subplot(313);
+%[xx,yy] = meshgrid(linspace(-12,4,1000),...
+%        linspace(20,max(perfiles3(:,2)),1000)); 
+%vq = griddata(perfiles3(:,1)',perfiles3(:,2)',perfiles3(:,3)',xx,yy);
+%imagesc(vq'); 
+%colormap jet;
+%axis([0,1000,0,1000,0,10]);
+%set(gca,'xtick',[],'ytick',[]);
 
 % Ajustar las posiciones de los subplots para hacer espacio para el colorbar
 pos1 = get(ax1, 'Position');
 pos2 = get(ax2, 'Position');
-pos3 = get(ax3, 'Position');
+%pos3 = get(ax3, 'Position');
 set(ax1, 'Position', [pos1(1), pos1(2), pos1(3) * 0.9, pos1(4)]);
 set(ax2, 'Position', [pos2(1), pos2(2), pos2(3) * 0.9, pos2(4)]);
-set(ax3, 'Position', [pos3(1), pos3(2), pos3(3) * 0.9, pos3(4)]);
+%set(ax3, 'Position', [pos3(1), pos3(2), pos3(3) * 0.9, pos3(4)]);
 
 % Añadir un colorbar común a todos los subplots
 c = colorbar;
